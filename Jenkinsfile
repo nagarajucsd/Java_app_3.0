@@ -3,6 +3,9 @@ pipeline {
     tools {
         maven 'Maven3'
     }
+    environment {
+        APP_NAME = "MyFirstApp"
+    }
     stages {
 
         stage('Checkout Code') {
@@ -21,6 +24,9 @@ pipeline {
                 sh 'mvn test'
             }
         } 
+        stage('app name') {
+            echo 'App name is :{$APP_NAME}'
+        }
     }
     post {
         success{
