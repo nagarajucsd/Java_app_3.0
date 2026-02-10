@@ -5,13 +5,13 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/nagarajucsd/Java_app_3.0.git'
+                git branch:'main', url: 'https://github.com/nagarajucsd/Java_app_3.0.git'
             }
         }
 
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Code downloaded successfully!'
+                sh 'mvn clean package'
             }
         }
     }
