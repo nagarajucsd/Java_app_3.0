@@ -26,7 +26,7 @@ pipeline {
         } 
         stage('app name'){
             steps {
-            echo "App name is :{$APP_NAME}"
+            echo "App name is :${APP_NAME}"
             }
         }
     }
