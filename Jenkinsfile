@@ -22,4 +22,12 @@ pipeline {
             }
         } 
     }
+    post {
+        success{
+            echo 'build and test successful'
+        }
+        failure {
+            echo 'build and test failed'
+        }
+    }
 }
