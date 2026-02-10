@@ -1,16 +1,18 @@
 pipeline {
-    agent any 
-        stages {
-            stage('Git checkout') {
-                steps {
-                    git branch: 'main',
-                    url: 'https://github.com/nagarajucsd/Java_app_3.0.git'
-                }
-            }
-            stage('sucess'){
-                steps{
-                    echo 'clone successful'
-                }
+    agent any
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/nagarajucsd/Java_app_3.0.git'
             }
         }
+
+        stage('Hello') {
+            steps {
+                echo 'Code downloaded successfully!'
+            }
+        }
+    }
 }
