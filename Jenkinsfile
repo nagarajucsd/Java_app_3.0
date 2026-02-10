@@ -24,8 +24,10 @@ pipeline {
                 sh 'mvn test'
             }
         } 
-        stage('app name') {
+        stage('app name'){
+            steps {
             echo 'App name is :{$APP_NAME}'
+            }
         }
     }
     post {
