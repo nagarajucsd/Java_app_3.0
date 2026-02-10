@@ -29,6 +29,11 @@ pipeline {
             echo "App name is :${APP_NAME}"
             }
         }
+        stage('Archive artifacts'){
+            steps {
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            }
+        }
     }
     post {
         success{
