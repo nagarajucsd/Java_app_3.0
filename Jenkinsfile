@@ -3,6 +3,9 @@ pipeline {
     environment {
         App_Name ="Myapp"
     }
+    tools{
+        maven'Maven3'
+    }
     stages {
         stage('git checkout'){
             steps{
