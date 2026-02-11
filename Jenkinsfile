@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    envirornment {
+    environment {
         App_Name ="Myapp"
     }
     stages {
