@@ -1,46 +1,11 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven3'
-    }
-    environment {
-        APP_NAME = "MyFirstApp"
-    }
+
     stages {
-
-        stage('Checkout Code') {
-            steps {
-                git branch:'main', url: 'https://github.com/nagarajucsd/Java_app_3.0.git'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-        stage('Test'){
+        stage('git checkout'){
             steps{
-                sh 'mvn test'
+                git branch:'main',url: 'https://github.com/nagarajucsd/Java_app_3.0.git'
             }
-        } 
-        stage('app name'){
-            steps {
-            echo "App name is :${APP_NAME}"
-            }
-        }
-        stage('Archive artifacts'){
-            steps {
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-            }
-        }
-    }
-    post {
-        success{
-            echo 'build and test successful'
-        }
-        failure {
-            echo 'build and test failed'
         }
     }
 }
