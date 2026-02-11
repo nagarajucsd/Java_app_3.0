@@ -29,6 +29,7 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar'
         }
     }
+    }
  post{
      success{
          echo 'test success'
